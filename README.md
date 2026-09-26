@@ -1,6 +1,10 @@
-# dart-api examples
+# KRDART — Korea DART API Examples
 
-Runnable examples for [dart-api](https://dart.ryanpp.com) — English JSON on top of Korea's DART filings, plus Altman Z (EM) + Piotroski F distress signals.
+[![Live](https://img.shields.io/badge/Live-dart.ryanpp.com-2b7fff)](https://dart.ryanpp.com)
+[![OpenAPI](https://img.shields.io/badge/OpenAPI-3.1-6BA539)](https://dart.ryanpp.com/openapi.yaml)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+Runnable examples for **KRDART** ([dart.ryanpp.com](https://dart.ryanpp.com)) — English JSON on top of Korea's DART filings, plus Altman Z (EM) + Piotroski F distress signals for KOSPI/KOSDAQ listed companies.
 
 ## Try it in 30 seconds
 
