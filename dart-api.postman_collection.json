@@ -1,0 +1,71 @@
+{
+  "info": {
+    "name": "Korea DART Corporate API",
+    "description": "https://dart.ryanpp.com — Financials + distress signals for KOSPI/KOSDAQ listed companies.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base", "value": "https://dart.ryanpp.com" },
+    { "key": "corp_code", "value": "00126380", "description": "Samsung Electronics" }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": { "method": "GET", "url": "{{base}}/health" }
+    },
+    {
+      "name": "Search companies",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base}}/companies/search?q=samsung&limit=10",
+          "host": ["{{base}}"],
+          "path": ["companies", "search"],
+          "query": [
+            { "key": "q", "value": "samsung" },
+            { "key": "limit", "value": "10" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Company master",
+      "request": { "method": "GET", "url": "{{base}}/companies/{{corp_code}}" }
+    },
+    {
+      "name": "Financials (annual, English labels)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base}}/financials/{{corp_code}}?year=2024&reprt=11011",
+          "host": ["{{base}}"],
+          "path": ["financials", "{{corp_code}}"],
+          "query": [
+            { "key": "year", "value": "2024" },
+            { "key": "reprt", "value": "11011" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Distress signal",
+      "request": { "method": "GET", "url": "{{base}}/distress/{{corp_code}}" }
+    },
+    {
+      "name": "Recent delisting-risk events (30d)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base}}/events/recent?days=30&type=DELISTING_RISK&limit=20",
+          "host": ["{{base}}"],
+          "path": ["events", "recent"],
+          "query": [
+            { "key": "days", "value": "30" },
+            { "key": "type", "value": "DELISTING_RISK" },
+            { "key": "limit", "value": "20" }
+          ]
+        }
+      }
+    }
+  ]
+}
