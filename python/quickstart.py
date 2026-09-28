@@ -1,16 +1,21 @@
 """
 Korea DART Corporate API — Python quickstart.
 
-Live: https://dart.ryanpp.com
+Get a free key (Basic plan, 3,000 requests/month): https://rapidapi.com/krdartapi/api/krdart
 Docs: https://dart.ryanpp.com/openapi.yaml
+
+    RAPIDAPI_KEY=your_key python quickstart.py
 """
+
+import os
 
 import requests
 
-BASE = "https://dart.ryanpp.com"
-# Once you're on a paid tier, plug your RapidAPI / api.market key in:
-# HEADERS = {"X-RapidAPI-Key": "..."}
-HEADERS = {}
+BASE = "https://krdart.p.rapidapi.com"
+HEADERS = {
+    "X-RapidAPI-Key": os.environ["RAPIDAPI_KEY"],
+    "X-RapidAPI-Host": "krdart.p.rapidapi.com",
+}
 
 
 def search(query: str, limit: int = 10) -> list[dict]:
@@ -59,7 +64,7 @@ if __name__ == "__main__":
 
     # 3) 2024 financials (English labels)
     fin = financials(code, year=2024)
-    print(f"FINANCIALS → {fin['count']} items across BS/IS/CF")
+    print(f"FINANCIALS → {fin['count']} items across BS/IS")
     for item in fin["items"][:5]:
         print(f"  {item['statement']:20s} {item['account_name_en']:30s} {item['current_amount']:,}")
 

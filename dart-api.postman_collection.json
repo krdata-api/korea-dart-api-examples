@@ -5,13 +5,38 @@
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "variable": [
-    { "key": "base", "value": "https://dart.ryanpp.com" },
-    { "key": "corp_code", "value": "00126380", "description": "Samsung Electronics" }
+    {
+      "key": "base",
+      "value": "https://krdart.p.rapidapi.com"
+    },
+    {
+      "key": "corp_code",
+      "value": "00126380",
+      "description": "Samsung Electronics"
+    },
+    {
+      "key": "rapidapi_key",
+      "value": "",
+      "description": "Your RapidAPI key (https://rapidapi.com/krdartapi/api/krdart)"
+    }
   ],
   "item": [
     {
       "name": "Health",
-      "request": { "method": "GET", "url": "{{base}}/health" }
+      "request": {
+        "method": "GET",
+        "url": "{{base}}/health",
+        "header": [
+          {
+            "key": "X-RapidAPI-Key",
+            "value": "{{rapidapi_key}}"
+          },
+          {
+            "key": "X-RapidAPI-Host",
+            "value": "krdart.p.rapidapi.com"
+          }
+        ]
+      }
     },
     {
       "name": "Search companies",
@@ -19,18 +44,52 @@
         "method": "GET",
         "url": {
           "raw": "{{base}}/companies/search?q=samsung&limit=10",
-          "host": ["{{base}}"],
-          "path": ["companies", "search"],
+          "host": [
+            "{{base}}"
+          ],
+          "path": [
+            "companies",
+            "search"
+          ],
           "query": [
-            { "key": "q", "value": "samsung" },
-            { "key": "limit", "value": "10" }
+            {
+              "key": "q",
+              "value": "samsung"
+            },
+            {
+              "key": "limit",
+              "value": "10"
+            }
           ]
-        }
+        },
+        "header": [
+          {
+            "key": "X-RapidAPI-Key",
+            "value": "{{rapidapi_key}}"
+          },
+          {
+            "key": "X-RapidAPI-Host",
+            "value": "krdart.p.rapidapi.com"
+          }
+        ]
       }
     },
     {
       "name": "Company master",
-      "request": { "method": "GET", "url": "{{base}}/companies/{{corp_code}}" }
+      "request": {
+        "method": "GET",
+        "url": "{{base}}/companies/{{corp_code}}",
+        "header": [
+          {
+            "key": "X-RapidAPI-Key",
+            "value": "{{rapidapi_key}}"
+          },
+          {
+            "key": "X-RapidAPI-Host",
+            "value": "krdart.p.rapidapi.com"
+          }
+        ]
+      }
     },
     {
       "name": "Financials (annual, English labels)",
@@ -38,18 +97,52 @@
         "method": "GET",
         "url": {
           "raw": "{{base}}/financials/{{corp_code}}?year=2024&reprt=11011",
-          "host": ["{{base}}"],
-          "path": ["financials", "{{corp_code}}"],
+          "host": [
+            "{{base}}"
+          ],
+          "path": [
+            "financials",
+            "{{corp_code}}"
+          ],
           "query": [
-            { "key": "year", "value": "2024" },
-            { "key": "reprt", "value": "11011" }
+            {
+              "key": "year",
+              "value": "2024"
+            },
+            {
+              "key": "reprt",
+              "value": "11011"
+            }
           ]
-        }
+        },
+        "header": [
+          {
+            "key": "X-RapidAPI-Key",
+            "value": "{{rapidapi_key}}"
+          },
+          {
+            "key": "X-RapidAPI-Host",
+            "value": "krdart.p.rapidapi.com"
+          }
+        ]
       }
     },
     {
       "name": "Distress signal",
-      "request": { "method": "GET", "url": "{{base}}/distress/{{corp_code}}" }
+      "request": {
+        "method": "GET",
+        "url": "{{base}}/distress/{{corp_code}}",
+        "header": [
+          {
+            "key": "X-RapidAPI-Key",
+            "value": "{{rapidapi_key}}"
+          },
+          {
+            "key": "X-RapidAPI-Host",
+            "value": "krdart.p.rapidapi.com"
+          }
+        ]
+      }
     },
     {
       "name": "Recent delisting-risk events (30d)",
@@ -57,14 +150,38 @@
         "method": "GET",
         "url": {
           "raw": "{{base}}/events/recent?days=30&type=DELISTING_RISK&limit=20",
-          "host": ["{{base}}"],
-          "path": ["events", "recent"],
+          "host": [
+            "{{base}}"
+          ],
+          "path": [
+            "events",
+            "recent"
+          ],
           "query": [
-            { "key": "days", "value": "30" },
-            { "key": "type", "value": "DELISTING_RISK" },
-            { "key": "limit", "value": "20" }
+            {
+              "key": "days",
+              "value": "30"
+            },
+            {
+              "key": "type",
+              "value": "DELISTING_RISK"
+            },
+            {
+              "key": "limit",
+              "value": "20"
+            }
           ]
-        }
+        },
+        "header": [
+          {
+            "key": "X-RapidAPI-Key",
+            "value": "{{rapidapi_key}}"
+          },
+          {
+            "key": "X-RapidAPI-Host",
+            "value": "krdart.p.rapidapi.com"
+          }
+        ]
       }
     }
   ]

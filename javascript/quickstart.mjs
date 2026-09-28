@@ -1,13 +1,17 @@
 /**
  * Korea DART Corporate API — Node/browser quickstart.
  *
- * Live: https://dart.ryanpp.com
+ * Get a free key (Basic plan, 3,000 requests/month): https://rapidapi.com/krdartapi/api/krdart
  * Docs: https://dart.ryanpp.com/openapi.yaml
+ *
+ *   RAPIDAPI_KEY=your_key node quickstart.mjs
  */
 
-const BASE = "https://dart.ryanpp.com";
-// Once you're on a paid tier: const headers = { "X-RapidAPI-Key": "..." };
-const headers = {};
+const BASE = "https://krdart.p.rapidapi.com";
+const headers = {
+  "X-RapidAPI-Key": process.env.RAPIDAPI_KEY,
+  "X-RapidAPI-Host": "krdart.p.rapidapi.com",
+};
 
 const get = async (path, params = {}) => {
   const url = new URL(BASE + path);
